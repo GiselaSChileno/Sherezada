@@ -1,0 +1,42 @@
+﻿
+
+@import url('https://fonts.googleapis.com/css2?family=Fleur+De+Leah&family=Kaushan+Script&display=swap');
+
+footer {
+    font-family: 'Lucida Sans';
+    color: #664242;
+    font-style: italic;
+    background-color: #d0bcb1;
+    
+}
+#encabezado {
+    font-family: "Fleur De Leah", serif;
+    font-size: 3em;
+    font-style: normal;
+    text-decoration: none;
+    color: #664242;
+}
+
+.container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    text-decoration: none;
+}
+h1 {
+    font-family: "Fleur De Leah", serif;
+    font-size: 2em;
+    color: #664242;
+    font-style: italic;
+}
+
+h5 {
+    font-family: "Fleur De Leah", serif;
+    font-size: 2em;
+    color: #664242;
+    font-style: italic;
+}
+
+
+
+
