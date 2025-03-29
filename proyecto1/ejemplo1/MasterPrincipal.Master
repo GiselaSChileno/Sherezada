@@ -16,7 +16,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        <div class="container-fluid">
             <nav class="navbar" style="background-color: #d0bcb1;">
                 <div class="container-fluid">
                     <div class="row">
@@ -39,8 +39,14 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="Categorias.aspx">Categorias</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">otro</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Contacto
+                                </a>                            
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="SobreMi.aspx">Sobre mí</a></li>
+                                    <li><a class="dropdown-item" href="PoliticaPrivacidad.aspx">Politica de Privacidad</a></li>
+                                    <li><a class="dropdown-item" href="Cookies.aspx">Política de Cookies</a></li>
+                                </ul>                               
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Usuarios
@@ -60,32 +66,43 @@
                                         </ul>
                                 <%} %>
                             </li>
+                            <li class="nav-item">
+                                <asp:TextBox ID="txtBuscar" runat="server" Text="Buscar" CssClass="form-label"></asp:TextBox>
+                                <asp:Button ID="Button" runat="server" Text="🔍" CssClass="btn btn-outline-secondary" OnClick="btn2_Click"/>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </nav>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
+            
             <footer>
-                <div class="container">
-                    <div>
-                        <a href="https://youtube.com/@sherezada-cuentosdamas?si=gbKivJVmEC8putn4">
-                            <i class="fa-brands fa-youtube" style="color: #664242;"></i>
-                        </a>
+                <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="row col-sm-3 offset-2">
+                        <a href="SobreMi.aspx" style="text-decoration: none; color: #664242;"><h7>Sobre mí</h7></a>
+                        <a href="PoliticaPrivacidad.aspx" style="text-decoration: none; color: #664242;"><h7>Política de Privacidad</h7></a>
+                        <a href="Cookies.aspx" style="text-decoration: none; color: #664242;"><h7>Política de Cookies</h7></a>
                     </div>
-                    <div>
-
-                        <a href="https://t.me/+hqX0iofBfVg2Yjlh">
-                            <i class="fa-brands fa-telegram" style="color: #664242;"></i>
-                        </a>
+                    <div class="row col-sm-4">
+                        <div class="col-sm-2">
+                            <a href="https://youtube.com/@sherezada-cuentosdamas?si=gbKivJVmEC8putn4" style="text-decoration: none">
+                                <i class="fa-brands fa-youtube fa-2xl" style="color: #664242; font-weight: 500;"></i>
+                            </a>
+                        </div>
+                        <div class="col-sm-2">
+                            <a href="https://t.me/+hqX0iofBfVg2Yjlh" style="text-decoration: none">
+                                <i class="fa-brands fa-telegram fa-2xl" style="color: #664242;"></i>
+                            </a>
+                        </div>
                     </div>
-                    <div>
-                        <H7>Desarrollado por <a>href="#"</a></H7>
-                    </div>
-                    <div>
+                    <div class="col-sm-3">
+                        <h7>Desarrollado por GiSCh</h7>
                         <h4>Sherezada 2024</h4>
                     </div>
                 </div>
+            </div>
             </footer>
         </div>
     </form>

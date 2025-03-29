@@ -15,7 +15,7 @@
          <br />
          <br />
            <div class="mb-3">
-             <label for="Lblsubs" class="form-label">¿Te gustaría apoyar el proyecto con una suscripción?</label>
+             <label for="Lblsubs" class="form-label">Recuerda que puedes apoyar el proyecto con una suscripción, que por el precio de un café te dará acceso prioritario a capítulos nuevos más rápido. </label>
 
            </div>
          <br />
@@ -28,10 +28,13 @@
 
         <asp:Button ID="ButLog" runat="server" Text="Aceptar" Onclick="BLog" CssClass="btn btn-outline-secondary"/>
          <br />
-         <label for="Lblsubs" class="form-label">No olvides que estoy disponible en Telegram si tienes algun problema.</label>
-         <div>
+         <label for="Lblsubs" class="form-label">No olvides que estoy disponible en Telegram o en sherezadapodcast@hotmail.com si tienes algun problema.</label>
+         <br />
+         <br />
+         <br />
+         <div class=" col offset-2">
              <a href="https://t.me/+hqX0iofBfVg2Yjlh">
-                 <i class="fa-brands fa-telegram" style="color: #664242;"></i>
+                 <i class="fa-brands fa-telegram fa-2xl" style="color: #664242;"></i>
              </a>
          </div>
     </div>

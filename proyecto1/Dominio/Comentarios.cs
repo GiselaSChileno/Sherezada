@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    internal class Comentarios
+    public class Comentarios
     {
-        public int CapId {  get; set; }
-        public int UsId { get; set; }
+        public int IdCom {  get; set; }
+        public int IdUs { get; set; }
+        public int IdCap { get; set; }  
+        public string UsNombre { get; set; }
         public string Comentario { get; set; }
+        public int Likes { get; set; }
     }
 }

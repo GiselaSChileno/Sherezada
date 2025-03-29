@@ -12,6 +12,146 @@ namespace Negocio
 {
     public class UsuarioNegocio
     {
+        public void modRev(int us, string mem)
+        {
+            Accesodatos datos = new Accesodatos();
+            try
+            {
+
+
+                datos.setearConsulta("insert into Revisar values(@Id, @mem, GETDATE())");
+
+                datos.setearParametro("@Id", us);
+                datos.setearParametro("@mem", mem);
+
+                datos.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+        }
+        public void modPrem(int us)
+        {
+            Accesodatos datos = new Accesodatos();
+            try
+            {
+
+
+                datos.setearConsulta("Update Usuarios set Tipo = 3, FechaCompra = GETDATE() Where Id = @Id");
+
+                datos.setearParametro("@Id", us);
+
+                datos.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+        }
+        public List<Comentarios> Coment(int cap)
+        {
+
+            Accesodatos datos = new Accesodatos();
+            List<Comentarios> lista = new List<Comentarios>();
+
+            try
+            {
+                datos.setearConsulta("Select * from Comentarios where IdCap = @Cap");
+                datos.setearParametro("@Cap", cap);
+
+                datos.ejecutarLectura();
+                while (datos.Lector.Read())
+                {
+                    Comentarios com = new Comentarios();
+                    com.IdCom = (int)datos.Lector["IdCom"];
+                    com.IdUs = (int)datos.Lector["IdUs"];
+                    com.IdCap = (int)datos.Lector["IdCap"];
+                    com.Comentario = (string)datos.Lector["Comentario"];
+                    com.UsNombre = (string)datos.Lector["UsNombre"];
+                    com.Likes = (int)datos.Lector["Likes"];
+                    lista.Add(com);
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+        public bool AgInt(int cap, int Interac)
+        {
+
+            Accesodatos datos = new Accesodatos();
+
+            try
+            {
+                datos.setearConsulta("Update Usuarios set Interacciones = @Interac where Id = @Cap");
+                datos.setearParametro("@Cap", cap);
+                datos.setearParametro("@Like", Interac);
+
+                datos.ejecutarLectura();
+                while (datos.Lector.Read())
+                {
+
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+        public void modiTipo(Usuario usuario)
+        {
+            Accesodatos datos = new Accesodatos();
+            try
+            {
+
+
+                datos.setearConsulta("Update Usuarios set Tipo = 1 Where Id = @Id");
+              
+                datos.setearParametro("@Id", usuario.Id);
+
+                datos.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+        }
         public void modificar(Usuario usuario)
         {
             Accesodatos datos = new Accesodatos();
@@ -61,13 +201,36 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+        public void AgregarCom(Comentarios comentario)
+        {
+            Accesodatos datos = new Accesodatos();
+
+            try
+            {
+                datos.setearProcedimiento("altaComentario");
+                datos.setearParametro("@IdUs", comentario.IdUs);
+                datos.setearParametro("@IdCap", comentario.IdCap);
+                datos.setearParametro("@Comentario", comentario.Comentario);
+                datos.setearParametro("@UsNombre", comentario.UsNombre);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
         public bool Loguear(Usuario usuario)
         {
 
             Accesodatos datos = new Accesodatos();
             try
             {
-                datos.setearConsulta("Select Id, Tipo, Nombre, Contrasena, Correo, FechaCompra, FechaNormal from Usuarios Where Correo = @correo AND Contrasena = @contrasena");
+                datos.setearConsulta("Select Id, Tipo, Nombre, Contrasena, Correo, FechaCompra, FechaNormal, Interacciones from Usuarios Where Correo = @correo AND Contrasena = @contrasena");
                 datos.setearParametro("@correo", usuario.Correo);
                 datos.setearParametro("@contrasena", usuario.Contrasena);
 
@@ -81,7 +244,8 @@ namespace Negocio
                     usuario.Nombre = (string)datos.Lector["Nombre"];
                     usuario.FechaCompra = (DateTime)datos.Lector["FechaCompra"];
                     usuario.FechaNormal = (DateTime)datos.Lector["FechaNormal"];
-                    
+                    usuario.Interacciones = (int)datos.Lector["Interacciones"];
+
                     return true;
                 }
                 return false;
@@ -144,6 +308,38 @@ namespace Negocio
                     return true;
                 }
                 return false;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+        public List<Respuestas> ResCom()
+        {
+
+            Accesodatos datos = new Accesodatos();
+            List<Respuestas> lista = new List<Respuestas>();
+
+            try
+            {
+                datos.setearConsulta("Select Respuesta, UsNombre, IdComent from Respuestas");
+
+                datos.ejecutarLectura();
+                while (datos.Lector.Read())
+                {
+
+                    Respuestas com = new Respuestas();
+                    com.Respuesta = (string)datos.Lector["Respuesta"];
+                    com.UsNombre = (string)datos.Lector["UsNombre"];
+                    com.IdComent = (int)datos.Lector["IdComent"];
+                    lista.Add(com);
+                }
+                return lista;
             }
             catch (Exception ex)
             {

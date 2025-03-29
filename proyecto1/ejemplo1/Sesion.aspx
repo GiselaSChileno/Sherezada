@@ -28,6 +28,7 @@
                 <label for="txtCorreo" class="form-label">Correo:</label>
                 <asp:TextBox ID="txtCorreo" runat="server" CssClass="form-control" type="email" ></asp:TextBox>
                 <p class="fst-italic">Por favor ten en cuenta que no usamos correo de verificación o publicidad. Sólo te notificaremos en caso de adquirir/cancelar suscripción o de requerir contraseña extraviada.</p>
+                <p class="fst-italic">Si olvidaste tu contraseña por favor escribe desde tu correo registrado a sherezadapodcast@hotmail.com</p>
             </div>
             
             <br />

@@ -67,13 +67,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Anual.aspx" />
     <Content Include="Audio.aspx" />
+    <Content Include="Busqueda.aspx" />
+    <Content Include="Cookies.aspx" />
     <Content Include="default.aspx" />
     <Content Include="Categorias.aspx" />
     <Content Include="Elegida.aspx" />
+    <Content Include="Mensual.aspx" />
     <Content Include="Perfil.aspx" />
+    <Content Include="PoliticaPrivacidad.aspx" />
     <Content Include="SesIniciada.aspx" />
     <Content Include="Sesion.aspx" />
+    <Content Include="SobreMi.aspx" />
     <Content Include="utilidades\EpisodiosAva\Ava1.ogg" />
     <Content Include="utilidades\EpisodiosAva\Ava2.ogg" />
     <Content Include="utilidades\EpisodiosLeah\Leah1.ogg" />
@@ -95,22 +101,45 @@
     <Content Include="utilidades\imgPrincipal\China.jpg" />
     <Content Include="utilidades\imgPrincipal\Dolorosas.jpg" />
     <Content Include="utilidades\imgPrincipal\Enc.jpg" />
+    <Content Include="utilidades\imgPrincipal\gracias.jpg" />
     <Content Include="utilidades\imgPrincipal\imagenFalla.jpeg" />
     <Content Include="utilidades\imgPrincipal\Leah1.jpg" />
     <Content Include="utilidades\imgPrincipal\LeahP.jpg" />
     <Content Include="utilidades\imgPrincipal\Lobos.jpg" />
     <Content Include="utilidades\imgPrincipal\Matias1.jpg" />
     <Content Include="utilidades\imgPrincipal\MatiasP.jpg" />
+    <Content Include="utilidades\imgPrincipal\MiFoto.jpg" />
     <Content Include="utilidades\imgPrincipal\Sherezada.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Anual.aspx.cs">
+      <DependentUpon>Anual.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Anual.aspx.designer.cs">
+      <DependentUpon>Anual.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Audio.aspx.cs">
       <DependentUpon>Audio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Audio.aspx.designer.cs">
       <DependentUpon>Audio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Busqueda.aspx.cs">
+      <DependentUpon>Busqueda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Busqueda.aspx.designer.cs">
+      <DependentUpon>Busqueda.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cookies.aspx.cs">
+      <DependentUpon>Cookies.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cookies.aspx.designer.cs">
+      <DependentUpon>Cookies.aspx</DependentUpon>
     </Compile>
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
@@ -140,12 +169,26 @@
     <Compile Include="Elegida.aspx.designer.cs">
       <DependentUpon>Elegida.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Mensual.aspx.cs">
+      <DependentUpon>Mensual.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mensual.aspx.designer.cs">
+      <DependentUpon>Mensual.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Perfil.aspx.cs">
       <DependentUpon>Perfil.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Perfil.aspx.designer.cs">
       <DependentUpon>Perfil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PoliticaPrivacidad.aspx.cs">
+      <DependentUpon>PoliticaPrivacidad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PoliticaPrivacidad.aspx.designer.cs">
+      <DependentUpon>PoliticaPrivacidad.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SesIniciada.aspx.cs">
@@ -161,6 +204,13 @@
     </Compile>
     <Compile Include="Sesion.aspx.designer.cs">
       <DependentUpon>Sesion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SobreMi.aspx.cs">
+      <DependentUpon>SobreMi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SobreMi.aspx.designer.cs">
+      <DependentUpon>SobreMi.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

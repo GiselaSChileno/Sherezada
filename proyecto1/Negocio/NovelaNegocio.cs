@@ -14,6 +14,35 @@ namespace Negocio
     
     public class NovelaNegocio
     {
+        public bool AgLike(int cap, int like)
+        {
+
+            Accesodatos datos = new Accesodatos();
+
+            try
+            {
+                datos.setearConsulta("Update Novelas set Likes = @like where Id = @Cap");
+                datos.setearParametro("@Cap", cap);
+                datos.setearParametro("@Like", like);
+
+                datos.ejecutarLectura();
+                while (datos.Lector.Read())
+                {
+
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
         public List<Novelas> listAu(int id)
         {
             List<Novelas> list = new List<Novelas>();
@@ -122,6 +151,7 @@ namespace Negocio
                         aux.Titulo = (string)datos.Lector["Titulo"];
                         aux.caps = (int)datos.Lector["caps"];
                         aux.Texto = (string)datos.Lector["Texto"];
+                        aux.Likes = (int)datos.Lector["Likes"];
 
                         lista.Add(aux);
 
@@ -163,7 +193,7 @@ namespace Negocio
 
                     }
                 }
-                else
+                else if (pro == "StoredListar")
                 {
 
                     while (datos.Lector.Read())

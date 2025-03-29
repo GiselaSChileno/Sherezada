@@ -3,7 +3,6 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<div class="min-vh-100">
     <div style="background: linear-gradient(#ffc4c4, #fff5e4);">
         <br />
         <br />
@@ -11,7 +10,7 @@
         <br />
         <br />
     </div>
-    <div style="background: linear-gradient(#ffc4c4, #fff5e4);">
+    <div class="min-vh-100"; style="background: linear-gradient(#ffc4c4, #fff5e4);">
         <img src="utilidades\imgPrincipal\categoriasP.jpg" class="d-block w-100" alt="...">
         <br />
         <br />
@@ -38,12 +37,12 @@
                                              <li class="list-group-item d-flex justify-content-between align-items-start">
                                                  <div class="ms-2 me-auto">
                                                      <div class="fw-bold"><%:Obra.Titulo %></div>
-                                                     <a href="Elegida.aspx?id=<%: Obra.Titulo %>">Leer </a>
+                                                     <a href="Elegida.aspx?id=<%: Obra.Titulo %>">🎙️</a>
                                                  </div>
                                              </li>
                                          </ol>
-                                    <%}
-                                          } %>
+                                        <%}
+                                     } %>
                                 <br />
                             </div>
                         </div>
@@ -56,5 +55,4 @@
               <% }%>
         </div>
     </div>
-</div>
 </asp:Content>

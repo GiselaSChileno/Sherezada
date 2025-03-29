@@ -33,6 +33,7 @@ namespace ejemplo1
             GridView1.DataSource = Elegida;
             GridView1.DataBind();
 
+
         }
 
         protected void dgvNovPage(object sender, GridViewPageEventArgs e)

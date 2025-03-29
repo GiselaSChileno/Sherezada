@@ -44,8 +44,8 @@
     <Compile Include="Comentarios.cs" />
     <Compile Include="Likes.cs" />
     <Compile Include="Novelas.cs" />
-    <Compile Include="Principales.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Respuestas.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

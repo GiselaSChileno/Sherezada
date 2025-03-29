@@ -76,16 +76,20 @@ namespace ejemplo1
                     if(negocio.Loguear(usuario))
                     {
                         Login = "¡Bienvenid@!";
-                        
-                        if (usuario.FechaCompra == null || usuario.FechaCompra >= usuario.FechaNormal)
+                        DateTime thisDay = DateTime.Today;
+                        UsuarioNegocio neg = new UsuarioNegocio();
+
+                        if (usuario.Tipo !=1 & thisDay >= usuario.FechaNormal)
                         {
+                            neg.modiTipo(usuario);
                             usuario.Tipo = 1;
+
                         }
                         Session.Add("user", usuario);
                         Session.Add("userN", usuario.Nombre);
                         Session.Add("userI", usuario.Id);
                         Session.Add("userT", usuario.Tipo);
-
+                        Session.Add("userInt", usuario.Interacciones);
 
                     }
                     else

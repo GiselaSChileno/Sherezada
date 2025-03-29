@@ -14,7 +14,8 @@ namespace ejemplo1
     {
         public List<Novelas> ListaNovelas {  get; set; }
         public List<Novelas> Populares { get; set; }
-
+        int band;
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,6 +24,21 @@ namespace ejemplo1
 
             NovelaNegocio negocio1 = new NovelaNegocio();
             Populares = negocio1.listar("Populares");
+
+            
+            if (Session["band"] == null)
+            {
+                band += 1;
+                Session.Add("band", band);
+            }else
+            {
+                band = (int)Session["band"];
+                band += 1;
+                Session.Add("band", band);
+            }
+            
+
+
             if (!IsPostBack)
             {
                 RepPop.DataSource = Populares;
@@ -35,7 +51,6 @@ namespace ejemplo1
                 RepN.DataBind();
 
             }
-
             
         }
 
@@ -52,6 +67,8 @@ namespace ejemplo1
             Session.Add("Titulo", valor);
             Response.Redirect("Elegida.aspx");
         }
+
+        
 
     }
 }
