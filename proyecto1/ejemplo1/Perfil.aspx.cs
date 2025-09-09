@@ -28,21 +28,29 @@ namespace ejemplo1
 
         public void BtnAcptClick(object sender, EventArgs e)
         {
-            Usuario nuevo = new Usuario();
-            UsuarioNegocio negocio = new UsuarioNegocio();
+            try
+            {
+                Usuario nuevo = new Usuario();
+                UsuarioNegocio negocio = new UsuarioNegocio();
 
-            nuevo.Nombre = txtNombre.Text;
-            nuevo.Correo = txtCorreo.Text;
-            nuevo.Contrasena = txtContrasena.Text;
-            nuevo.Id = (int)Session["userI"];   
+                nuevo.Nombre = txtNombre.Text;
+                nuevo.Correo = txtCorreo.Text;
+                nuevo.Contrasena = txtContrasena.Text;
+                nuevo.Id = (int)Session["userI"];
 
-            negocio.modificar(nuevo);
-            Session.Add("user", nuevo);
-            Session.Add("userN", nuevo.Nombre);
-            Session.Add("userI", nuevo.Id);
-            Session.Add("userT", nuevo.Tipo);
+                negocio.modificar(nuevo);
+                Session.Add("user", nuevo);
+                Session.Add("userN", nuevo.Nombre);
+                Session.Add("userI", nuevo.Id);
+                Session.Add("userT", nuevo.Tipo);
 
-            Response.Redirect("SesIniciada.aspx", false);
+                Response.Redirect("SesIniciada.aspx", false);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }

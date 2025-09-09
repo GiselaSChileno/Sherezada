@@ -21,23 +21,29 @@ namespace ejemplo1
             NovelaNegocio neg = new NovelaNegocio();
             Todo = negocio.listar("Capitulos");
             Alternativa = neg.listar("Populares");
-            
-            string busqueda = (string)Session["Buscar"];
-            List<Novelas> filtro = Todo.FindAll(X => X.Titulo.ToUpper().Contains(busqueda.ToUpper()));
-            if (filtro.Count() > 0)
-            {
-                Repeater1.DataSource = filtro;
-                Repeater1.DataBind();   
-            }else
-            {
 
-                Repeater1.DataSource = Alternativa;
-                Repeater1.DataBind();
+            try
+            {
+                string busqueda = (string)Session["Buscar"];
+                List<Novelas> filtro = Todo.FindAll(X => X.Titulo.ToUpper().Contains(busqueda.ToUpper()));
+                if (filtro.Count() > 0)
+                {
+                    Repeater1.DataSource = filtro;
+                    Repeater1.DataBind();
+                }
+                else
+                {
 
+                    Repeater1.DataSource = Alternativa;
+                    Repeater1.DataBind();
+
+                }
             }
+            catch (Exception ex)
+            {
 
-            
-
+                throw ex;
+            }
         }
     }
 }

@@ -12,14 +12,22 @@ namespace ejemplo1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            int Us = (int)Session["userI"];
-            UsuarioNegocio negocio = new UsuarioNegocio();
-            negocio.modPrem(Us);
-            string memb = "anual";
-            UsuarioNegocio negocio1 = new UsuarioNegocio();
-            negocio1.modRev(Us, memb);
-            int prem = 3;
-            Session.Add("userT", prem);
+			try
+			{
+                int Us = (int)Session["userI"];
+                UsuarioNegocio negocio = new UsuarioNegocio();
+                negocio.modPrem(Us);
+                string memb = "anual";
+                UsuarioNegocio negocio1 = new UsuarioNegocio();
+                negocio1.modRev(Us, memb);
+                int prem = 3;
+                Session.Add("userT", prem);
+            }
+			catch (Exception ex)
+			{
+
+				throw ex;
+			}
         }
     }
 }

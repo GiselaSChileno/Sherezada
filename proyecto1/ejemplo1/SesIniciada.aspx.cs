@@ -19,21 +19,29 @@ namespace ejemplo1
         }
         public void BLog(object sender,EventArgs e)
         {
-            if ((string)Session["mensaje"] == "Te registraste exitosamente. Bienvenid@ a este club de lectura :)")
+            try
             {
-                Ingreso = "Progreso";
-                Session.Add("Usuario", Ingreso);
-                Response.Redirect("Sesion.aspx", false);
+                if ((string)Session["mensaje"] == "Te registraste exitosamente. Bienvenid@ a este club de lectura :)")
+                {
+                    Ingreso = "Progreso";
+                    Session.Add("Usuario", Ingreso);
+                    Response.Redirect("Sesion.aspx", false);
+                }
+                else if ((string)Session["mensaje"] == "¡Bienvenid@!")
+                {
+
+                    Response.Redirect("Default.aspx", false);
+                }
+                else
+                {
+
+                    Response.Redirect("Sesion.aspx", false);
+                }
             }
-            else if((string)Session["mensaje"] == "¡Bienvenid@!")
+            catch (Exception ex)
             {
 
-               Response.Redirect("Default.aspx", false );
-            }
-            else
-            {
-                
-                Response.Redirect("Sesion.aspx", false);
+                throw ex;
             }
         }
         public void ModClik(object sender, EventArgs e)

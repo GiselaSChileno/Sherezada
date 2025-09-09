@@ -15,25 +15,31 @@ namespace ejemplo1
         public List<Novelas> Elegida { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.QueryString["id"] != null)
+            try
             {
-                string Title = Request.QueryString["id"].ToString();
-                Session.Add("Titulo", Title);
+                if (Request.QueryString["id"] != null)
+                {
+                    string Title = Request.QueryString["id"].ToString();
+                    Session.Add("Titulo", Title);
+                }
+
+                int Tipo = 1;
+
+                if (Session["userT"] != null)
+                {
+                    Tipo = (int)Session["userT"];
+                }
+
+                NovelaNegocio negocio = new NovelaNegocio();
+                Elegida = negocio.ListE((string)Session["Titulo"], Tipo);
+                GridView1.DataSource = Elegida;
+                GridView1.DataBind();
             }
-
-            int Tipo = 1;
-
-            if (Session["userT"] != null)
+            catch (Exception ex)
             {
-                Tipo = (int)Session["userT"];
+
+                throw ex;
             }
-            
-            NovelaNegocio negocio = new NovelaNegocio();
-            Elegida = negocio.ListE((string)Session["Titulo"], Tipo);
-            GridView1.DataSource = Elegida;
-            GridView1.DataBind();
-
-
         }
 
         protected void dgvNovPage(object sender, GridViewPageEventArgs e)

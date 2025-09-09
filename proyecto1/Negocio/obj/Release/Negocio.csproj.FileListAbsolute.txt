@@ -1,0 +1,9 @@
+C:\Users\s0412\source\repos\proyecto1\Negocio\bin\Release\Negocio.dll
+C:\Users\s0412\source\repos\proyecto1\Negocio\bin\Release\Negocio.pdb
+C:\Users\s0412\source\repos\proyecto1\Negocio\bin\Release\Dominio.dll
+C:\Users\s0412\source\repos\proyecto1\Negocio\bin\Release\Dominio.pdb
+C:\Users\s0412\source\repos\proyecto1\Negocio\obj\Release\Negocio.csproj.AssemblyReference.cache
+C:\Users\s0412\source\repos\proyecto1\Negocio\obj\Release\Negocio.csproj.CoreCompileInputs.cache
+C:\Users\s0412\source\repos\proyecto1\Negocio\obj\Release\Negocio.csproj.Up2Date
+C:\Users\s0412\source\repos\proyecto1\Negocio\obj\Release\Negocio.dll
+C:\Users\s0412\source\repos\proyecto1\Negocio\obj\Release\Negocio.pdb

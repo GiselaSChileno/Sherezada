@@ -25,33 +25,38 @@ namespace ejemplo1
             NovelaNegocio negocio1 = new NovelaNegocio();
             Populares = negocio1.listar("Populares");
 
-            
-            if (Session["band"] == null)
+            try
             {
-                band += 1;
-                Session.Add("band", band);
-            }else
-            {
-                band = (int)Session["band"];
-                band += 1;
-                Session.Add("band", band);
+                if (Session["band"] == null)
+                {
+                    band += 1;
+                    Session.Add("band", band);
+                }
+                else
+                {
+                    band = (int)Session["band"];
+                    band += 1;
+                    Session.Add("band", band);
+                }
+
+
+
+                if (!IsPostBack)
+                {
+                    RepPop.DataSource = Populares;
+                    RepPop.DataBind();
+                }
+                if (!IsPostBack)
+                {
+                    RepN.DataSource = ListaNovelas;
+                    RepN.DataBind();
+                }
             }
-            
-
-
-            if (!IsPostBack)
+            catch (Exception ex)
             {
-                RepPop.DataSource = Populares;
-                RepPop.DataBind();  
 
+                throw ex;
             }
-            if (!IsPostBack)
-            {
-                RepN.DataSource = ListaNovelas;
-                RepN.DataBind();
-
-            }
-            
         }
 
         protected void btn1_Click(object sender, EventArgs e)

@@ -21,7 +21,6 @@ namespace ejemplo1
 
             NovelaNegocio nego = new NovelaNegocio();
             Cats = nego.listar("Cats");
-
           
         }
        

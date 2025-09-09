@@ -18,51 +18,65 @@ namespace ejemplo1
         public List<Respuestas> Respuestas { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            int id = int.Parse(Request.QueryString["id"]);
-            Session.Add("Id", id);
-
-
-            NovelaNegocio negocio = new NovelaNegocio();
-            UsuarioNegocio nuevo = new UsuarioNegocio();
-            UsuarioNegocio coment = new UsuarioNegocio(); 
-            UsuarioNegocio comneg = new UsuarioNegocio();
-            Elegida = negocio.listAu((int)Session["Id"]);
-            Comentarios = coment.Coment((int)Session["Id"]);
-            Respuestas = comneg.ResCom();
-
-
-
-            if (Session["userI"] != null & !IsPostBack)
+            try
             {
-                int Us = (int)Session["userI"];
-                int Cap = (int)Session["Id"];
-                if (nuevo.Like(Cap, Us))
-                {
-                    RaBu1.Checked = true;
-                }
-                
-            }
-            
-                
+                int id = int.Parse(Request.QueryString["id"]);
+                Session.Add("Id", id);
 
+
+                NovelaNegocio negocio = new NovelaNegocio();
+                UsuarioNegocio nuevo = new UsuarioNegocio();
+                UsuarioNegocio coment = new UsuarioNegocio();
+                UsuarioNegocio comneg = new UsuarioNegocio();
+                Elegida = negocio.listAu((int)Session["Id"]);
+                Comentarios = coment.Coment((int)Session["Id"]);
+                Respuestas = comneg.ResCom();
+
+
+
+                if (Session["userI"] != null & !IsPostBack)
+                {
+                    int Us = (int)Session["userI"];
+                    int Cap = (int)Session["Id"];
+                    if (nuevo.Like(Cap, Us))
+                    {
+                        RaBu1.Checked = true;
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
         protected void RadioButton1(object sender, EventArgs e)
         {
             UsuarioNegocio nuevo = new UsuarioNegocio();
             NovelaNegocio nov = new NovelaNegocio();
             UsuarioNegocio negocio1 = new UsuarioNegocio();
-            if (RaBu1.Checked == true)
-            {
-                int Us = (int)Session["userI"];
-                int Cap = (int)Session["Id"];
-                int like = (int)Elegida[0].Likes;
-                like ++;
-                int Interac = (int)Session["userInt"];
-                Interac++;
-                nuevo.NewLike(Cap, Us);
-                nov.AgLike(Cap, like);
-                negocio1.AgInt(Cap, Interac);   
 
+            try
+            {
+                if (RaBu1.Checked == true)
+                {
+                    int Us = (int)Session["userI"];
+                    int Cap = (int)Session["Id"];
+                    int like = (int)Elegida[0].Likes;
+                    like++;
+                    int Interac = (int)Session["userInt"];
+                    Interac++;
+                    nuevo.NewLike(Cap, Us);
+                    nov.AgLike(Cap, like);
+                    negocio1.AgInt(Cap, Interac);
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
             }
         }
        protected void btn1_Click(object sender, EventArgs e)
@@ -70,15 +84,21 @@ namespace ejemplo1
             Comentarios nuevo = new Comentarios();
             UsuarioNegocio negocio = new UsuarioNegocio();
 
-            nuevo.IdUs = (int)Session["userI"];
-            nuevo.IdCap = (int)Session["Id"];
-            nuevo.Comentario = txtComent.Text;
-            nuevo.UsNombre = (string)Session["userN"];
+            try
+            {
+                nuevo.IdUs = (int)Session["userI"];
+                nuevo.IdCap = (int)Session["Id"];
+                nuevo.Comentario = txtComent.Text;
+                nuevo.UsNombre = (string)Session["userN"];
 
-            negocio.AgregarCom(nuevo);
-            Response.Redirect("Elegida.aspx", false);
+                negocio.AgregarCom(nuevo);
+                Response.Redirect("Elegida.aspx", false);
+            }
+            catch (Exception ex)
+            {
 
-
+                throw ex;
+            }
 
         }
     }
